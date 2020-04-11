@@ -32,7 +32,7 @@ public class ReportResultTest extends ReportGenerator {
         List<Feature> features = reportResult.getAllFeatures();
 
         // then
-        assertThat(features).hasSize(2);
+        assertThat(features).hasSize(3);
     }
 
     @Test
@@ -58,7 +58,7 @@ public class ReportResultTest extends ReportGenerator {
         List<StepObject> tags = reportResult.getAllSteps();
 
         // then
-        assertThat(tags).hasSize(16);
+        assertThat(tags).hasSize(17);
     }
 
     @Test
@@ -85,7 +85,7 @@ public class ReportResultTest extends ReportGenerator {
         int failedFeatures = reportResult.getFeatureReport().getFailedFeatures();
 
         // then
-        assertThat(passingFeatures).isEqualTo(1);
+        assertThat(passingFeatures).isEqualTo(2);
         assertThat(failedFeatures).isEqualTo(1);
     }
 

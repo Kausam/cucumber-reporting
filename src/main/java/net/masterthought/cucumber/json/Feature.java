@@ -31,6 +31,7 @@ public class Feature implements Reportable, Durationable {
     // End: attributes from JSON file report
 
     private String reportFileName;
+    private boolean transformedElements = false;
 
     /**
      * When feature if executed against different devices, platforms or targets,
@@ -61,6 +62,12 @@ public class Feature implements Reportable, Durationable {
     }
 
     public Element[] getElements() {
+        if (!transformedElements && elements.length != 0) {
+            for (Element element : elements) {
+                element.makeStepTree();
+            }
+            transformedElements = true;
+        }
         return elements;
     }
 

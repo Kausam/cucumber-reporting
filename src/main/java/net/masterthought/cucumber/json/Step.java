@@ -40,6 +40,7 @@ public class Step implements Resultsable {
 
     private Status beforeStatus;
     private Status afterStatus;
+    private Step[] childSteps = null;
 
     public Row[] getRows() {
         int argumentsSize = ArrayUtils.getLength(arguments);
@@ -107,6 +108,14 @@ public class Step implements Resultsable {
 
     public Status getAfterStatus() {
         return afterStatus;
+    }
+
+    public Step[] getChildSteps() {
+        return childSteps;
+    }
+
+    public void setChildSteps(Step[] childSteps) {
+        this.childSteps = childSteps;
     }
 
     public void setMetaData() {

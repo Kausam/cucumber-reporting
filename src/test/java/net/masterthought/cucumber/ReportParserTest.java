@@ -33,7 +33,7 @@ public class ReportParserTest extends ReportGenerator {
         List<Feature> features = reportParser.parseJsonFiles(jsonReports);
 
         // then
-        assertThat(features).hasSize(3);
+        assertThat(features).hasSize(4);
     }
 
     @Test
@@ -124,7 +124,7 @@ public class ReportParserTest extends ReportGenerator {
         List<Feature> features = reportParser.parseJsonFiles(jsonReports);
 
         // then
-        assertThat(features).hasSize(2);
+        assertThat(features).hasSize(3);
     }
 
     @Test

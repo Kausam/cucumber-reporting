@@ -86,7 +86,7 @@ public class ReportBuilderTest extends ReportGenerator {
         Reportable result = builder.generateReports();
 
         // then
-        assertThat(countHtmlFiles()).hasSize(9);
+        assertThat(countHtmlFiles()).hasSize(10);
         assertThat(result).isNotNull();
     }
 
@@ -104,7 +104,7 @@ public class ReportBuilderTest extends ReportGenerator {
         Reportable result = builder.generateReports();
 
         // then
-        assertThat(countHtmlFiles()).hasSize(10);
+        assertThat(countHtmlFiles()).hasSize(11);
         assertThat(result).isNotNull();
     }
 
@@ -220,7 +220,7 @@ public class ReportBuilderTest extends ReportGenerator {
         Deencapsulation.invoke(builder, "generatePages", new Trends());
 
         // then
-        assertThat(countHtmlFiles(configuration).length).isEqualTo(9);
+        assertThat(countHtmlFiles(configuration).length).isEqualTo(10);
     }
 
     @Test
@@ -237,7 +237,7 @@ public class ReportBuilderTest extends ReportGenerator {
         Deencapsulation.invoke(builder, "generatePages", new Trends());
 
         // then
-        assertThat(countHtmlFiles(configuration).length).isEqualTo(10);
+        assertThat(countHtmlFiles(configuration).length).isEqualTo(11);
     }
 
     @Test

@@ -168,7 +168,7 @@ public class TagsOverviewPageIntegrationTest extends PageTest {
 
         assertThat(footerRows).hasSize(2);
         footerRows[0].hasExactValues("", "22", "1", "2", "1", "2", "28", "3", "1", "4", "0.509", "3");
-        footerRows[1].hasExactValues("", "78.57%", "3.57%", "7.14%", "3.57%", "7.14%", "", "75.00%", "25.00%", "", "", "50.00%");
+        footerRows[1].hasExactValues("", "78.57%", "3.57%", "7.14%", "3.57%", "7.14%", "", "75.00%", "25.00%", "", "", "66.67%");
     }
 
     @Test

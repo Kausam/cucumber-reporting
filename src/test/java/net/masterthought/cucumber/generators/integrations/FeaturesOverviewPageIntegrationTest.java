@@ -134,7 +134,7 @@ public class FeaturesOverviewPageIntegrationTest extends PageTest {
         DocumentAssertion document = documentFrom(page.getWebPage());
         TableRowAssertion[] bodyRows = document.getReport().getTableStats().getBodyRows();
 
-        assertThat(bodyRows).hasSize(2);
+        assertThat(bodyRows).hasSize(3);
 
         TableRowAssertion firstRow = bodyRows[0];
         firstRow.hasExactValues("1st feature", "10", "0", "0", "0", "0", "10", "1", "0", "1", "1:39.263", "Passed");
@@ -147,6 +147,12 @@ public class FeaturesOverviewPageIntegrationTest extends PageTest {
         secondRow.hasExactCSSClasses("tagname", "passed", "failed", "skipped", "pending", "undefined", "total", "passed", "failed", "total", "duration", "failed");
         secondRow.hasExactDataValues("", "", "", "", "", "", "", "", "", "", "92610000", "");
         secondRow.getReportLink().hasLabelAndAddress("Second feature", "report-feature_1_1515379431.html");
+
+        TableRowAssertion thirdRow = bodyRows[2];
+        thirdRow.hasExactValues("TC-002-Billing.feature", "15", "0", "0", "0", "0", "15", "1", "0", "1", "0.304", "Passed");
+        thirdRow.hasExactCSSClasses("tagname", "passed", "", "", "", "", "total", "passed", "", "total", "duration", "passed");
+        thirdRow.hasExactDataValues("", "", "", "", "", "", "", "", "", "", "304539714", "");
+        thirdRow.getReportLink().hasLabelAndAddress("TC-002-Billing.feature", "report-feature_2_3322141943.html");
     }
 
     @Test
@@ -164,7 +170,7 @@ public class FeaturesOverviewPageIntegrationTest extends PageTest {
         DocumentAssertion document = documentFrom(page.getWebPage());
         TableRowAssertion[] bodyRows = document.getReport().getTableStats().getBodyRows();
 
-        assertThat(bodyRows).hasSize(2);
+        assertThat(bodyRows).hasSize(3);
 
         TableRowAssertion firstRow = bodyRows[0];
         firstRow.hasExactValues("1st feature", "sample", "10", "0", "0", "0", "0", "10", "1", "0", "1", "1:39.263", "Passed");
@@ -177,6 +183,11 @@ public class FeaturesOverviewPageIntegrationTest extends PageTest {
         secondRow.hasExactCSSClasses("tagname", "", "passed", "failed", "skipped", "pending", "undefined", "total", "passed", "failed", "total", "duration", "failed");
         secondRow.hasExactDataValues("", "", "", "", "", "", "", "", "", "", "", "92610000", "");
         secondRow.getReportLink().hasLabelAndAddress("Second feature", "report-feature_1_1515379431.html");
+
+        TableRowAssertion thirdRow = bodyRows[2];
+        thirdRow.hasExactValues("TC-002-Billing.feature", "sample", "15", "0", "0", "0", "0", "15", "1", "0", "1", "0.304", "Passed");
+        thirdRow.hasExactCSSClasses("tagname", "", "passed", "", "", "", "", "total", "passed", "", "total", "duration", "passed");
+        thirdRow.hasExactDataValues("", "", "", "", "", "", "", "", "", "", "", "304539714", "");
     }
 
     @Test
@@ -194,8 +205,8 @@ public class FeaturesOverviewPageIntegrationTest extends PageTest {
         TableRowAssertion[] footerRows = document.getReport().getTableStats().getAllFooterRows();
 
         assertThat(footerRows).hasSize(2);
-        footerRows[0].hasExactValues("", "15", "1", "2", "1", "3", "22", "2", "2", "4", "1:39.355", "2");
-        footerRows[1].hasExactValues("", "68.18%", "4.55%", "9.09%", "4.55%", "13.64%", "", "50.00%", "50.00%", "", "", "50.00%");
+        footerRows[0].hasExactValues("", "21", "1", "2", "1", "3", "28", "3", "2", "5", "1:39.449", "3");
+        footerRows[1].hasExactValues("", "75.00%", "3.57%", "7.14%", "3.57%", "10.71%", "", "60.00%", "40.00%", "", "", "66.67%");
     }
 
     @Test
@@ -214,7 +225,7 @@ public class FeaturesOverviewPageIntegrationTest extends PageTest {
         TableRowAssertion[] footerRows = document.getReport().getTableStats().getAllFooterRows();
 
         assertThat(footerRows).hasSize(2);
-        footerRows[0].hasExactValues("", "", "15", "1", "2", "1", "3", "22", "2", "2", "4", "1:39.355", "2");
-        footerRows[1].hasExactValues("", "", "68.18%", "4.55%", "9.09%", "4.55%", "13.64%", "", "50.00%", "50.00%", "", "", "50.00%");
+        footerRows[0].hasExactValues("", "", "21", "1", "2", "1", "3", "28", "3", "2", "5", "1:39.449", "3");
+        footerRows[1].hasExactValues("", "", "75.00%", "3.57%", "7.14%", "3.57%", "10.71%", "", "60.00%", "40.00%", "", "", "66.67%");
     }
 }

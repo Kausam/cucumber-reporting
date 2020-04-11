@@ -656,5 +656,207 @@
             }
         ],
         "uri": "net/masterthought/example/ATMK.feature"
+    },
+    {
+        "line": 3,
+        "name":"TC-002-Billing.feature",
+        "description": "billing tests",
+        "id": "billing-tests",
+        "keyword": "Feature",
+        "uri": "com/platform/TC-002-Billing.feature",
+        "elements": [
+            {
+                "line": 3,
+                "name": "TC-002-Billing",
+                "description": "",
+                "id": "tc-002-billing",
+                "type": "scenario",
+                "keyword": "Scenario",
+                "steps": [
+                    {
+                        "name": "call read(.feature')",
+                        "result": {
+                            "duration": 23423498,
+                            "status": "passed"
+                        },
+                        "match": {
+                            "location": "karate",
+                            "arguments": []
+                        },
+                        "keyword": "*",
+                        "line": 17
+                    },{
+                        "name": "features/reset.feature",
+                        "result": {
+                            "duration": 0,
+                            "status": "passed"
+                        },
+                        "match": {
+                            "location": "karate",
+                            "arguments": []
+                        },
+                        "keyword": "*",
+                        "line": 17
+                    },{
+                        "name": "def utils = .type('features.util.Utils')",
+                        "result": {
+                            "duration": 23423498,
+                            "status": "passed"
+                        },
+                        "match": {
+                            "location": "karate",
+                            "arguments": []
+                        },
+                        "keyword": ">*",
+                        "line": 4
+                    },{
+                        "name": "configure s = read('js')",
+                        "result": {
+                            "duration": 23423498,
+                            "status": "passed"
+                        },
+                        "match": {
+                            "location": "karate",
+                            "arguments": []
+                        },
+                        "keyword": ">*",
+                        "line": 5
+                    },{
+                        "name": "def sets = call read('js')",
+                        "result": {
+                            "duration": 23423498,
+                            "status": "passed"
+                        },
+                        "match": {
+                            "location": "karate",
+                            "arguments": []
+                        },
+                        "keyword": "> *",
+                        "line": 8
+                    },{
+                        "name": "eval sets['asset'] = karate.get('tb')",
+                        "result": {
+                            "duration": 23423498,
+                            "status": "passed"
+                        },
+                        "match": {
+                            "location": "karate",
+                            "arguments": []
+                        },
+                        "keyword": "> *",
+                        "line": 9
+                    },{
+                        "name": "def base = '2343'",
+                        "result": {
+                            "duration": 34240,
+                            "status": "passed"
+                        },
+                        "match": {
+                            "location": "karate",
+                            "arguments": []
+                        },
+                        "keyword": "*",
+                        "line": 18
+                    },{
+                        "name": "def locale = 'us'",
+                        "result": {
+                            "duration": 23423498,
+                            "status": "passed"
+                        },
+                        "match": {
+                            "location": "karate",
+                            "arguments": []
+                        },
+                        "keyword": "*",
+                        "line": 19
+                    },{
+                        "name": "features.direct.feature",
+                        "result": {
+                            "duration": 23423498,
+                            "status": "passed"
+                        },
+                        "match": {
+                            "location": "karate",
+                            "arguments": []
+                        },
+                        "keyword": "",
+                        "line": 20
+                    },{
+                        "name": "def payload = read('js')",
+                        "result": {
+                            "duration": 23423498,
+                            "status": "passed"
+                        },
+                        "match": {
+                            "location": "karate",
+                            "arguments": []
+                        },
+                        "keyword": "> *",
+                        "line": 10
+                    },{
+                        "name": "def utils = call read('js')",
+                        "result": {
+                            "duration": 23423498,
+                            "status": "passed"
+                        },
+                        "match": {
+                            "location": "karate",
+                            "arguments": []
+                        },
+                        "keyword": ">> *",
+                        "line": 12
+                    },{
+                        "name": "def sets =call read('js')",
+                        "result": {
+                            "duration": 23423498,
+                            "status": "passed"
+                        },
+                        "match": {
+                            "location": "karate",
+                            "arguments": []
+                        },
+                        "keyword": ">> *",
+                        "line": 18
+                    },{
+                        "name": "call read('directOverride.feature')",
+                        "result": {
+                            "duration": 23423498,
+                            "status": "passed"
+                        },
+                        "match": {
+                            "location": "karate",
+                            "arguments": []
+                        },
+                        "keyword": ">",
+                        "line": 19
+                    },{
+                        "name": "def jsUtils = read('js')",
+                        "result": {
+                            "duration": 23423498,
+                            "status": "passed"
+                        },
+                        "match": {
+                            "location": "karate",
+                            "arguments": []
+                        },
+                        "keyword": ">>",
+                        "line": 16
+                    },{
+                        "name": "print response",
+                        "result": {
+                            "duration": 23423498,
+                            "status": "passed"
+                        },
+                        "match": {
+                            "location": "karate",
+                            "arguments": []
+                        },
+                        "keyword": "",
+                        "line": 22
+                    }
+                ]
+            }
+        ]
+
     }
 ]

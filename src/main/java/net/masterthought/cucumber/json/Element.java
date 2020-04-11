@@ -10,6 +10,8 @@ import net.masterthought.cucumber.json.support.StatusCounter;
 import net.masterthought.cucumber.util.Util;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Element implements Durationable {
 
@@ -30,7 +32,7 @@ public class Element implements Durationable {
      */
     @JsonProperty("start_timestamp")
     private final LocalDateTime startTime = null;
-    private final Step[] steps = new Step[0];
+    private Step[] steps = new Step[0];
     private final Hook[] before = new Hook[0];
     private final Hook[] after = new Hook[0];
     private final Tag[] tags = new Tag[0];
@@ -156,5 +158,66 @@ public class Element implements Durationable {
         for (Step step : steps) {
             duration += step.getResult().getDuration();
         }
+    }
+
+    /**
+     * Depth of a step is given by the number of leading '>' symbols in the step's keyword
+     * @param index
+     * @return depth of the step present at index position of steps array
+     */
+    private int getStepDepth(int index) {
+        if (org.apache.commons.lang3.StringUtils.isBlank(steps[index].getKeyword())) {
+            return 0;
+        }
+        String keyword = steps[index].getKeyword();
+        int depth = 0;
+        while (depth < keyword.length() && keyword.charAt(depth) == '>') {
+            depth++;
+        }
+        return depth;
+    }
+
+    /**
+     * Groups the flat steps array into a hierarchical tree structure
+     * Needs to be called at least once after Json deserialization
+     */
+    public void makeStepTree() {
+        List<Step> resultStepList = new ArrayList<>();
+        int index = 0;
+        while (index < steps.length) {
+            if (getStepDepth(index) == 0) {
+                //The existing Step object at index location will be modified
+                resultStepList.add(steps[index]);
+                index = modifyStep(index);
+            }
+        }
+        //this is the only place where we are destroying any step object
+        steps = resultStepList.toArray(new Step[0]);
+    }
+
+    /**
+     * Put the {@code steps[index]} step's children inside the {@code childSteps} array
+     * @param index
+     * @return
+     */
+    public int modifyStep(int index) {
+        if (index >= steps.length-1)
+            return steps.length;
+        List<Step> childSteps = new ArrayList<>();
+        int currentDepth = getStepDepth(index);
+        int currentIndex = index;
+        index++;
+        while (index < steps.length) {
+            int childDepth = getStepDepth(index);
+            if (childDepth == currentDepth+1) {
+                //The existing Step object will be modified by the modifyStep call
+                childSteps.add(steps[index]);
+                index = modifyStep(index);
+            } else if (childDepth <= currentDepth) {
+                break;
+            }
+        }
+        steps[currentIndex].setChildSteps(childSteps.toArray(new Step[0]));
+        return index;
     }
 }

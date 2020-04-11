@@ -33,6 +33,22 @@ public class ElementTest extends PageTest {
     }
 
     @Test
+    public void getSteps_ReturnsStepsWithHierarchy() {
+        // given
+        Element element = features.get(2).getElements()[0];
+
+        // when
+        Step[] steps = element.getSteps();
+
+        // then
+        assertThat(steps).hasSize(6);
+        assertThat(steps[1].getChildSteps()).hasSize(4);
+        assertThat(steps[4].getChildSteps()).hasSize(2);
+        assertThat(steps[1].getName()).isEqualTo("features/reset.feature");
+
+    }
+
+    @Test
     public void getBefore_ReturnsHooks() {
 
         // given

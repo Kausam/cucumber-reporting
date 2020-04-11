@@ -34,7 +34,7 @@ public class SortingFactoryTest extends PageTest {
         List<Feature> featureList = sortingFactory.sortFeatures(features);
 
         // then
-        assertThat(featureList).containsExactly(features.get(0), features.get(1));
+        assertThat(featureList).containsExactly(features.get(0), features.get(1), features.get(2));
     }
 
     @Test
@@ -47,7 +47,7 @@ public class SortingFactoryTest extends PageTest {
         List<Feature> featureList = sortingFactory.sortFeatures(features);
 
         // then
-        assertThat(featureList).containsExactly(features.get(0), features.get(1));
+        assertThat(featureList).containsExactly(features.get(0), features.get(1), features.get(2));
     }
 
     @Test
@@ -113,9 +113,9 @@ public class SortingFactoryTest extends PageTest {
         List<StepObject> stepObjects = sortingFactory.sortSteps(steps);
 
         // then
-        assertThat(stepObjects).hasSize(16);
+        assertThat(stepObjects).hasSize(17);
         assertThat(stepObjects).first().isEqualTo(steps.get(0));
-        assertThat(stepObjects).last().isEqualTo(steps.get(15));
+        assertThat(stepObjects).last().isEqualTo(steps.get(16));
     }
 
     @Test
@@ -129,9 +129,9 @@ public class SortingFactoryTest extends PageTest {
 
         // then
         // TODO: as the tags are stored in TreeMap, this returns already sorted elements
-        assertThat(stepObjects).hasSize(16);
+        assertThat(stepObjects).hasSize(17);
         assertThat(stepObjects).first().isEqualTo(steps.get(0));
-        assertThat(stepObjects).last().isEqualTo(steps.get(15));
+        assertThat(stepObjects).last().isEqualTo(steps.get(16));
     }
 
     @Test
