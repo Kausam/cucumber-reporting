@@ -7,7 +7,20 @@
   </div>
 
   <div id="steps-$stepsId" class="inner-level collapse collapsable-details #if (!$element.getStatus().isPassed() || $expand_all_steps) in #end">
-    #foreach($step in $element.getSteps())
+    #includeChildSteps($steps)
+  </div>
+</div>
+
+#end
+
+#macro(includeChildSteps, $steps)
+
+    #foreach($step in $steps)
+        #if ($step.getChildSteps() && !$step.getChildSteps().isEmpty())
+            #set($childStepsId = $counter.next())
+            <div data-toggle="collapse" class="#if ($element.getStatus().isPassed()) collapsed #end collapsable-control" data-target="#childSteps-$childStepsId">
+        #end
+
       <div class="step">
         #includeStepName($step.getKeyword(), $step.getName(), $step.getMatch().getArguments(), $step.getResult().getStatus(), $step.getResult())
         #set($isPassed = $step.getResult().getStatus().isPassed())
@@ -31,8 +44,12 @@
         #includeEmbeddings($step.getEmbeddings())
         #includeHooks("After", $step.getAfter(), $step.getAfterStatus(), "step")
       </div>
-    #end
-  </div>
-</div>
+        #if ($step.getChildSteps() && !$step.getChildSteps().isEmpty())
+            </div>
+            <div id="childSteps-$childStepsId" class="collapse collapsable-details">
+            #includeChildSteps($step.getChildSteps())
+            </div>
 
+        #end
+    #end
 #end
